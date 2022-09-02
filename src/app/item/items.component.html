@@ -1,33 +1,121 @@
-<!--
-The template defines the view of the component - what is actually rendered.
-In NativeScript applications the template is defined with XML using NativeScript UI elements.
-It is different from HTML. So instead of <input>, <span>, <div> etc. - we have <TextField>, <Label> and layouts.
-The important thing is that although the elements are different - all of the Angular’s template syntax works exactly the same.
-So you can still use template expressions, bindings, templates as well as all the built-in directives.
--->
+<ActionBar class="action-bar">
+    <NavigationButton text="Home" android.systemIcon="ic_menu_back" ios.position="left"></NavigationButton>
+    <Label class="action-bar-title" text="Expense"></Label>
+</ActionBar>
+
+<ScrollView id="myScroller" #scrollView>
+
+    <StackLayout class="form" >
+
+        <Button class="btn btn-primary btn-datepicker" text="Select Date Incurred"></Button>
+
+
+
+
+
+        <Label text="Description"></Label>
+        <TextField
+        hint="Enter description...">
+        </TextField>
+
+        <Label text="Vendor"></Label>
+        <TextField 
+        hint="Enter vendor...">
+        </TextField>
+
+        <Label text="Value"></Label>
+        <TextField
+
+                keyboardType="number"
+
+                hint="Enter claim amount..." required number>
+        </TextField>
+
+        <Label text="Sales Tax/VAT" ></Label>
+        <TextField
+                formControlName="salesTax"
+
+
+                keyboardType="number"
+                hint="Sales tax/VAT amount..." number>
+        </TextField>
+
+
+
+
+
+
+        <Label text="Or Create Report"></Label>
+        <TextField 
+        hint="New Report">
+        </TextField>
+
+        <Label text="Textfield 1"></Label>
+        <TextField hint="Enter text...">
+        </TextField>
+
+        <Label text="Textfield 2"></Label>
+        <TextField hint="Enter text...">
+        </TextField>
+
+        <Label text="Textfield 3"></Label>
+        <TextField hint="Enter dfsda...">
+        </TextField>
+        <Label text="Or Create Report"></Label>
+        <TextField 
+        hint="New Report">
+        </TextField>
+
+        <Label text="Textfield 4"></Label>
+        <TextField hint="Enter text...">
+        </TextField>
+
+        <Label text="Textfield 5"></Label>
+        <TextField hint="Enter text...">
+        </TextField>
+
+        <Label text="Textfield 6"></Label>
+        <TextField hint="Enter dfsda...">
+        </TextField>
+        <Label text="Or Create Report"></Label>
+        <TextField 
+        hint="New Report">
+        </TextField>
+
+        <Label text="Textfield 7"></Label>
+        <TextField hint="Enter text...">
+        </TextField>
+
+        <Label text="Textfield 8"></Label>
+        <TextField hint="Enter text...">
+        </TextField>
+
+        <Label text="Textfield 9"></Label>
+        <TextField hint="Enter dfsda...">
+        </TextField>
 
 <!--
-The ActionBar is the NativeScript common abstraction over the Android ActionBar and iOS NavigationBar.
-http://docs.nativescript.org/ui/action-bar
+    Comment
 -->
-<ActionBar title="My App"> </ActionBar>
+        <StackLayout>
 
-<!--
-The GridLayout arranges its child elements in a table structure of rows and columns.
-A cell can contain multiple child elements, they can span over multiple rows and columns,
-and even overlap each other. The GridLayout has one column and one row by default.
-You can learn more about NativeScript layouts at https://docs.nativescript.org/ui/layout-containers.
+            <TextField formControlName="receiptData"
+                        visibility="collapsed"></TextField>
+        </StackLayout>
 
-These components make use of the NativeScript core theme, which styles them with element selectors.
-The theme also provides a set of helper class names such as p-20, h1, h2, and text-center to enhance styling.
-You can learn more about the NativeScript core theme at https://github.com/nativescript/theme
--->
-<GridLayout>
-  <ListView [items]="items">
-    <ng-template let-item="item">
-      <StackLayout [nsRouterLink]="['/item', item.id]">
-        <Label [text]="item.name"></Label>
-      </StackLayout>
-    </ng-template>
-  </ListView>
-</GridLayout>
+        <Button text="Add Receipt"
+                (tap)=onTap()
+                class="-outline"></Button>
+        <!--
+                    <Button *ngIf="journey_reason.valid && claim_vendor.valid && claim_amount.valid && (receiptTaken || galleryProvided)" text="Save Expense Claim" class="btn btn-primary" (tap)="onCreate()"></Button>
+        -->
+        <Button text="Save Expense Claim" class="btn btn-primary"
+            (tap)="onCreate()"></Button>
+
+
+
+            <Label text="^Top" horizontalAlignment="right"></Label>
+
+    </StackLayout>
+
+</ScrollView>

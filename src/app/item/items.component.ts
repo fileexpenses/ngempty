@@ -1,18 +1,39 @@
-import { Component, OnInit } from '@angular/core'
+import {Component, Injectable, OnInit, ViewContainerRef, ViewChild, ElementRef} from "@angular/core";
+import { EventData, ScrollView, SwipeGestureEventData } from '@nativescript/core';
 
-import { Item } from './item'
-import { ItemService } from './item.service'
+
 
 @Component({
-  selector: 'ns-items',
-  templateUrl: './items.component.html',
+  selector: "Items",
+  //moduleId: module.id,
+  templateUrl: "./items.component.html"
 })
-export class ItemsComponent implements OnInit {
-  items: Array<Item>
 
-  constructor(private itemService: ItemService) {}
+@Injectable()
+export class ItemsComponent implements OnInit {
+
+
+
+  @ViewChild("scrollView", { static: false }) scrollView: ElementRef;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
-    this.items = this.itemService.getItems()
   }
+
+  onCreate() {
+  }
+
+  getDate() {
+  }
+
+  onTap() {
+    alert("Tap!");
+  }
+
+
+
+
+
 }
