@@ -7,7 +7,7 @@
 
     <StackLayout class="form" >
 
-        <Button class="btn btn-primary btn-datepicker" text="Select Date Incurred"></Button>
+        <Button class="btn btn-primary btn-datepicker" text="Select Date Incurred" (tap)=onTap()></Button>
 
 
 
@@ -109,8 +109,8 @@
         <!--
                     <Button *ngIf="journey_reason.valid && claim_vendor.valid && claim_amount.valid && (receiptTaken || galleryProvided)" text="Save Expense Claim" class="btn btn-primary" (tap)="onCreate()"></Button>
         -->
-        <Button text="Save Expense Claim" class="btn btn-primary"
-            (tap)="onCreate()"></Button>
+        <Button text="Save Expense Claim" class="btn btn-primary" 
+            (tap)=onTap()></Button>
 
 
 

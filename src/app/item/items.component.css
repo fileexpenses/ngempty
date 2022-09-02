@@ -1,0 +1,9 @@
+ScrollView {
+	background-color: #CCE2FF;
+}
+TextField {
+	background-color: #DDECFF;
+}
+TextField:focus {
+	background-color: #ffffff;
+}
