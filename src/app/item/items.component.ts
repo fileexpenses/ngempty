@@ -1,7 +1,7 @@
-import {Component, Injectable, OnInit, ViewContainerRef, ViewChild, ElementRef} from "@angular/core";
+import {Component, Injectable, OnInit, OnDestroy, ViewContainerRef, ViewChild, ElementRef} from "@angular/core";
 import { EventData, ScrollView, SwipeGestureEventData } from '@nativescript/core';
 import * as ModalPicker from 'nativescript-modal-datetimepicker';
-
+import {SelectedIndexChangedEventData, ValueList} from "nativescript-drop-down";
 
 @Component({
   selector: "Items",
@@ -12,9 +12,11 @@ import * as ModalPicker from 'nativescript-modal-datetimepicker';
 })
 
 @Injectable()
-export class ItemsComponent implements OnInit {
+export class ItemsComponent implements OnInit, OnDestroy  {
 
   public selectedDate: string;
+
+  public ownership: ValueList<string>; 
 
   @ViewChild("scrollView", { static: false }) scrollView: ElementRef;
 
@@ -22,8 +24,14 @@ export class ItemsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log("in OnInit");
+    this.ownership = new ValueList<string>();
+    this.ownership.push({value: "1", display: "Private"});
+    this.ownership.push({value: "2", display: "Company"});    
   }
-
+  ngOnDestroy() {
+    console.log('Component is dead!');
+  }
   onCreate() {
   }
 
@@ -50,6 +58,7 @@ export class ItemsComponent implements OnInit {
       }
       let year=result.year;
       let proper_date=year+"-"+month+"-"+day;
+      console.log("date="+proper_date);
       return proper_date;
   }
 

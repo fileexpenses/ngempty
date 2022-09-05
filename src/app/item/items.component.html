@@ -5,14 +5,21 @@
 
 <ScrollView id="myScroller" #scrollView>
 
-    <StackLayout class="form" >
+    <StackLayout class="form">
 
-        <Label *ngIf="selectedDate" [text]='"Date Incurred: " + (selectedDate | date: "dd/MM/yy")' class="h3 m-15 datepicker" textWrap="true"></Label>
+        <Label *ngIf="selectedDate" [text]='"Date Incesfsdurred: " + (selectedDate | date: "dd/MM/yy")' class="h3 m-15 datepicker" textWrap="true"></Label>
         <Button class="btn btn-primary btn-datepicker" text="Select Date Incurred" (tap)="getDate()"></Button>
 
-
-
-
+        <StackLayout>
+            <GridLayout rows="auto, auto, *"
+                        columns="auto, *">
+                <DropDown class="dropdown_options" id="ownership_options" #dd
+                          [items]="ownership"
+                          hint="Choose"
+                          row="0"
+                          colSpan="2"></DropDown>
+            </GridLayout>
+        </StackLayout>
 
 
         <Label text="Description"></Label>
@@ -24,6 +31,7 @@
         <TextField 
         hint="Enter vendor...">
         </TextField>
+
 
         <Label text="Value"></Label>
         <TextField
@@ -99,11 +107,7 @@
 <!--
     Comment
 -->
-        <StackLayout>
 
-            <TextField formControlName="receiptData"
-                        visibility="collapsed"></TextField>
-        </StackLayout>
 
         <Button text="Add Receipt"
                 (tap)=onTap()

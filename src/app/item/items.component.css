@@ -7,3 +7,6 @@ TextField {
 TextField:focus {
 	background-color: #ffffff;
 }
+.dropdown_options {
+	background-color: #ff0000;
+}
