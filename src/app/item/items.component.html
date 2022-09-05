@@ -7,7 +7,9 @@
 
     <StackLayout class="form" >
 
-        <Button class="btn btn-primary btn-datepicker" text="Select Date Incurred" (tap)=onTap()></Button>
+        <Label *ngIf="selectedDate" [text]='"Date Incurred: " + (selectedDate | date: "dd/MM/yy")' class="h3 m-15 datepicker" textWrap="true"></Label>
+        <Button class="btn btn-primary btn-datepicker" text="Select Date Incurred" (tap)="getDate()"></Button>
+
 
 
 
